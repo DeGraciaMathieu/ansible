@@ -1,0 +1,4 @@
+---
+ansible_user: forge
+ansible_host: 157.245.39.193
+
