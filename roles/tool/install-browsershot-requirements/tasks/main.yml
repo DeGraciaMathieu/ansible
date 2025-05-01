@@ -1,0 +1,14 @@
+---
+
+- name: Check if Puppeteer is already installed globally
+  ansible.builtin.command: npm list -g puppeteer
+  register: puppeteer_check
+  ignore_errors: yes
+
+- name: Install Puppeteer if absent
+  ansible.builtin.shell: |
+    npm install puppeteer --location=global
+  args:
+    executable: /bin/bash
+  become: yes
+  when: "'puppeteer' not in puppeteer_check.stdout"

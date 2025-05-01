@@ -5,3 +5,4 @@
   become: true
   roles:
     - tool/update-packages
+    - tool/install-browsershot-requirements
